@@ -24,8 +24,9 @@ RUN apt-get update && \
 # Setup the directories for our Spark and Hadoop installations
 ENV SPARK_HOME=${SPARK_HOME:-"/opt/spark"}
 ENV HADOOP_HOME=${HADOOP_HOME:-"/opt/hadoop"}
+ENV SPARK_LOG_PATH=${SPARK_LOG_PATH:-"/var/log/spark/apps"}
 
-RUN mkdir -p ${HADOOP_HOME} && mkdir -p ${SPARK_HOME}
+RUN mkdir -p ${HADOOP_HOME} && mkdir -p ${SPARK_HOME} && mkdir -p ${SPARK_LOG_PATH}
 WORKDIR ${SPARK_HOME}
 
 # Download and install Spark
@@ -40,8 +41,6 @@ RUN curl https://archive.apache.org/dist/hadoop/common/hadoop-${HADOOP_VERSION}/
 
 
 FROM spark-base as pyspark
-
-RUN apt-get install 
 
 # Install python deps
 COPY requirements/requirements.txt .
@@ -84,6 +83,25 @@ COPY yarn/spark-defaults.conf "$SPARK_HOME/conf/"
 COPY yarn/*.xml "$HADOOP_HOME/etc/hadoop/"
 COPY yarn/log4j2.properties "$SPARK_HOME/conf/"
 
+# YARN_LOG_DIR -> HADOOP_LOG_DIR
+ENV HADOOP_LOG_DIR="/var/log/hadoop-yarn/nodemanager" 
+ENV YARN_APP_LOG_DIR="/var/log/hadoop-yarn/apps"
+
+RUN mkdir -p $HADOOP_LOG_DIR && mkdir -p $YARN_APP_LOG_DIR
+RUN chmod 777 $HADOOP_LOG_DIR && chmod 777 $YARN_APP_LOG_DIR
+
+ENV FLUNTBIT_HOME="/opt/fluent-bit"
+
+RUN curl https://raw.githubusercontent.com/fluent/fluent-bit/master/install.sh | sh
+RUN curl https://packages.fluentbit.io/fluentbit.key | gpg --dearmor > /usr/share/keyrings/fluentbit-keyring.gpg
+
+RUN apt-get update && \
+  apt-get install fluent-bit
+  
+#RUN mkdir -p $FLUNTBIT_HOME
+
+COPY fluentbit/ $FLUNTBIT_HOME
+
 # Make the binaries and scripts executable and set the PYTHONPATH environment variable
 RUN chmod u+x /opt/spark/sbin/* && \
     chmod u+x /opt/spark/bin/*
@@ -99,6 +117,10 @@ COPY ssh_config ~/.ssh/config
 
 # Copy appropriate entrypoint script
 COPY entrypoint-yarn.sh entrypoint.sh
+
+# Copy Example pi.py 
+
+COPY examples/pi.py /opt/spark/examples/src/main/python/pi.py
 
 EXPOSE 22
 
