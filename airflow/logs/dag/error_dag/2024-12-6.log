@@ -1,0 +1,460 @@
+time:2024-12-06T04:59:47.225+0000  filename:local_task_job_runner.py:123  levelname:INFO  err_message:::group::Pre task execution logs
+time:2024-12-06T04:59:47.225+0000  filename:local_task_job_runner.py:123  levelname:INFO  err_message:::group::Pre task execution logs
+time:2024-12-06T04:59:47.234+0000  filename:taskinstance.py:2613  levelname:INFO  err_message:Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: error_dag.error_task scheduled__2023-01-01T00:00:00+00:00 [queued]>
+time:2024-12-06T04:59:47.234+0000  filename:taskinstance.py:2613  levelname:INFO  err_message:Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: error_dag.error_task manual__2024-12-06T04:59:44.722022+00:00 [queued]>
+time:2024-12-06T04:59:47.239+0000  filename:taskinstance.py:2613  levelname:INFO  err_message:Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: error_dag.error_task scheduled__2023-01-01T00:00:00+00:00 [queued]>
+time:2024-12-06T04:59:47.239+0000  filename:taskinstance.py:2866  levelname:INFO  err_message:Starting attempt 1 of 2
+time:2024-12-06T04:59:47.240+0000  filename:taskinstance.py:2613  levelname:INFO  err_message:Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: error_dag.error_task manual__2024-12-06T04:59:44.722022+00:00 [queued]>
+time:2024-12-06T04:59:47.240+0000  filename:taskinstance.py:2866  levelname:INFO  err_message:Starting attempt 1 of 2
+time:2024-12-06T04:59:47.246+0000  filename:taskinstance.py:2889  levelname:INFO  err_message:Executing <Task(PythonOperator): error_task> on 2023-01-01 00:00:00+00:00
+time:2024-12-06T04:59:47.247+0000  filename:taskinstance.py:2889  levelname:INFO  err_message:Executing <Task(PythonOperator): error_task> on 2024-12-06 04:59:44.722022+00:00
+time:2024-12-06T04:59:47.249+0000  filename:standard_task_runner.py:72  levelname:INFO  err_message:Started process 147 to run task
+time:2024-12-06T04:59:47.253+0000  filename:standard_task_runner.py:72  levelname:INFO  err_message:Started process 148 to run task
+time:2024-12-06T04:59:47.255+0000  filename:standard_task_runner.py:104  levelname:INFO  err_message:Running: ['***', 'tasks', 'run', 'error_dag', 'error_task', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/error_dag.py', '--cfg-path', '/tmp/tmpg_q73r2q']
+time:2024-12-06T04:59:47.257+0000  filename:standard_task_runner.py:105  levelname:INFO  err_message:Job 6: Subtask error_task
+time:2024-12-06T04:59:47.259+0000  filename:standard_task_runner.py:104  levelname:INFO  err_message:Running: ['***', 'tasks', 'run', 'error_dag', 'error_task', 'manual__2024-12-06T04:59:44.722022+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/error_dag.py', '--cfg-path', '/tmp/tmpje3ryoff']
+time:2024-12-06T04:59:47.261+0000  filename:standard_task_runner.py:105  levelname:INFO  err_message:Job 5: Subtask error_task
+time:2024-12-06T04:59:47.309+0000  filename:task_command.py:467  levelname:INFO  err_message:Running <TaskInstance: error_dag.error_task scheduled__2023-01-01T00:00:00+00:00 [running]> on host 51331a8f6977
+time:2024-12-06T04:59:47.309+0000  filename:task_command.py:467  levelname:INFO  err_message:Running <TaskInstance: error_dag.error_task manual__2024-12-06T04:59:44.722022+00:00 [running]> on host 51331a8f6977
+time:2024-12-06T04:59:47.351+0000  filename:taskinstance.py:3132  levelname:INFO  err_message:Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='error_dag' AIRFLOW_CTX_TASK_ID='error_task' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+time:2024-12-06T04:59:47.351+0000  filename:taskinstance.py:731  levelname:INFO  err_message:::endgroup::
+time:2024-12-06T04:59:47.353+0000  filename:taskinstance.py:3132  levelname:INFO  err_message:Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='error_dag' AIRFLOW_CTX_TASK_ID='error_task' AIRFLOW_CTX_EXECUTION_DATE='2024-12-06T04:59:44.722022+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-06T04:59:44.722022+00:00'
+time:2024-12-06T04:59:47.354+0000  filename:taskinstance.py:731  levelname:INFO  err_message:::endgroup::
+time:2024-12-06T04:59:47.361+0000  filename:taskinstance.py:3311  levelname:ERROR  err_message:Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/error_dag.py", line 8, in raise_error
+    raise ValueError(
+ValueError: This is an intentional error.
+Line 1: Something went wrong.
+Line 2: Please check the configuration.
+Line 3: Ensure all dependencies are installed.
+Line 4: Refer to the documentation for more details.
+Line 5: Contact support if the issue persists.
+time:2024-12-06T04:59:47.363+0000  filename:taskinstance.py:3311  levelname:ERROR  err_message:Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/error_dag.py", line 8, in raise_error
+    raise ValueError(
+ValueError: This is an intentional error.
+Line 1: Something went wrong.
+Line 2: Please check the configuration.
+Line 3: Ensure all dependencies are installed.
+Line 4: Refer to the documentation for more details.
+Line 5: Contact support if the issue persists.
+time:2024-12-06T04:59:47.438+0000  filename:taskinstance.py:1225  levelname:INFO  err_message:Marking task as UP_FOR_RETRY. dag_id=error_dag, task_id=error_task, run_id=scheduled__2023-01-01T00:00:00+00:00, execution_date=20230101T000000, start_date=20241206T045947, end_date=20241206T045947
+time:2024-12-06T04:59:47.439+0000  filename:taskinstance.py:1225  levelname:INFO  err_message:Marking task as UP_FOR_RETRY. dag_id=error_dag, task_id=error_task, run_id=manual__2024-12-06T04:59:44.722022+00:00, execution_date=20241206T045944, start_date=20241206T045947, end_date=20241206T045947
+time:2024-12-06T04:59:47.452+0000  filename:taskinstance.py:340  levelname:INFO  err_message:::group::Post task execution logs
+time:2024-12-06T04:59:47.454+0000  filename:taskinstance.py:340  levelname:INFO  err_message:::group::Post task execution logs
+time:2024-12-06T04:59:47.454+0000  filename:standard_task_runner.py:124  levelname:ERROR  err_message:Failed to execute job 6 for task error_task (This is an intentional error.
+Line 1: Something went wrong.
+Line 2: Please check the configuration.
+Line 3: Ensure all dependencies are installed.
+Line 4: Refer to the documentation for more details.
+Line 5: Contact support if the issue persists.; 147)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/error_dag.py", line 8, in raise_error
+    raise ValueError(
+ValueError: This is an intentional error.
+Line 1: Something went wrong.
+Line 2: Please check the configuration.
+Line 3: Ensure all dependencies are installed.
+Line 4: Refer to the documentation for more details.
+Line 5: Contact support if the issue persists.
+time:2024-12-06T04:59:47.453+0000  filename:standard_task_runner.py:124  levelname:ERROR  err_message:Failed to execute job 5 for task error_task (This is an intentional error.
+Line 1: Something went wrong.
+Line 2: Please check the configuration.
+Line 3: Ensure all dependencies are installed.
+Line 4: Refer to the documentation for more details.
+Line 5: Contact support if the issue persists.; 148)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/error_dag.py", line 8, in raise_error
+    raise ValueError(
+ValueError: This is an intentional error.
+Line 1: Something went wrong.
+Line 2: Please check the configuration.
+Line 3: Ensure all dependencies are installed.
+Line 4: Refer to the documentation for more details.
+Line 5: Contact support if the issue persists.
+time:2024-12-06T04:59:47.471+0000  filename:local_task_job_runner.py:266  levelname:INFO  err_message:Task exited with return code 1
+time:2024-12-06T04:59:47.485+0000  filename:local_task_job_runner.py:266  levelname:INFO  err_message:Task exited with return code 1
+time:2024-12-06T04:59:47.485+0000  filename:taskinstance.py:3895  levelname:INFO  err_message:0 downstream tasks scheduled from follow-on schedule check
+time:2024-12-06T04:59:47.488+0000  filename:local_task_job_runner.py:245  levelname:INFO  err_message:::endgroup::
+time:2024-12-06T04:59:47.502+0000  filename:taskinstance.py:3895  levelname:INFO  err_message:0 downstream tasks scheduled from follow-on schedule check
+time:2024-12-06T04:59:47.505+0000  filename:local_task_job_runner.py:245  levelname:INFO  err_message:::endgroup::
+time:2024-12-06T05:04:48.235+0000  filename:local_task_job_runner.py:123  levelname:INFO  err_message:::group::Pre task execution logs
+time:2024-12-06T05:04:48.235+0000  filename:local_task_job_runner.py:123  levelname:INFO  err_message:::group::Pre task execution logs
+time:2024-12-06T05:04:48.262+0000  filename:taskinstance.py:2613  levelname:INFO  err_message:Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: error_dag.error_task manual__2024-12-06T04:59:44.722022+00:00 [queued]>
+time:2024-12-06T05:04:48.262+0000  filename:taskinstance.py:2613  levelname:INFO  err_message:Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: error_dag.error_task scheduled__2023-01-01T00:00:00+00:00 [queued]>
+time:2024-12-06T05:04:48.268+0000  filename:taskinstance.py:2613  levelname:INFO  err_message:Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: error_dag.error_task scheduled__2023-01-01T00:00:00+00:00 [queued]>
+time:2024-12-06T05:04:48.268+0000  filename:taskinstance.py:2866  levelname:INFO  err_message:Starting attempt 2 of 2
+time:2024-12-06T05:04:48.268+0000  filename:taskinstance.py:2613  levelname:INFO  err_message:Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: error_dag.error_task manual__2024-12-06T04:59:44.722022+00:00 [queued]>
+time:2024-12-06T05:04:48.268+0000  filename:taskinstance.py:2866  levelname:INFO  err_message:Starting attempt 2 of 2
+time:2024-12-06T05:04:48.275+0000  filename:taskinstance.py:2889  levelname:INFO  err_message:Executing <Task(PythonOperator): error_task> on 2023-01-01 00:00:00+00:00
+time:2024-12-06T05:04:48.277+0000  filename:taskinstance.py:2889  levelname:INFO  err_message:Executing <Task(PythonOperator): error_task> on 2024-12-06 04:59:44.722022+00:00
+time:2024-12-06T05:04:48.278+0000  filename:standard_task_runner.py:72  levelname:INFO  err_message:Started process 237 to run task
+time:2024-12-06T05:04:48.279+0000  filename:standard_task_runner.py:72  levelname:INFO  err_message:Started process 238 to run task
+time:2024-12-06T05:04:48.282+0000  filename:standard_task_runner.py:104  levelname:INFO  err_message:Running: ['***', 'tasks', 'run', 'error_dag', 'error_task', 'manual__2024-12-06T04:59:44.722022+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/error_dag.py', '--cfg-path', '/tmp/tmpj_2aal66']
+time:2024-12-06T05:04:48.282+0000  filename:standard_task_runner.py:104  levelname:INFO  err_message:Running: ['***', 'tasks', 'run', 'error_dag', 'error_task', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/error_dag.py', '--cfg-path', '/tmp/tmpns9mho4t']
+time:2024-12-06T05:04:48.283+0000  filename:standard_task_runner.py:105  levelname:INFO  err_message:Job 8: Subtask error_task
+time:2024-12-06T05:04:48.283+0000  filename:standard_task_runner.py:105  levelname:INFO  err_message:Job 7: Subtask error_task
+time:2024-12-06T05:04:48.312+0000  filename:task_command.py:467  levelname:INFO  err_message:Running <TaskInstance: error_dag.error_task manual__2024-12-06T04:59:44.722022+00:00 [running]> on host 51331a8f6977
+time:2024-12-06T05:04:48.314+0000  filename:task_command.py:467  levelname:INFO  err_message:Running <TaskInstance: error_dag.error_task scheduled__2023-01-01T00:00:00+00:00 [running]> on host 51331a8f6977
+time:2024-12-06T05:04:48.368+0000  filename:taskinstance.py:3132  levelname:INFO  err_message:Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='error_dag' AIRFLOW_CTX_TASK_ID='error_task' AIRFLOW_CTX_EXECUTION_DATE='2024-12-06T04:59:44.722022+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-06T04:59:44.722022+00:00'
+time:2024-12-06T05:04:48.369+0000  filename:taskinstance.py:731  levelname:INFO  err_message:::endgroup::
+time:2024-12-06T05:04:48.376+0000  filename:taskinstance.py:3132  levelname:INFO  err_message:Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='error_dag' AIRFLOW_CTX_TASK_ID='error_task' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+time:2024-12-06T05:04:48.377+0000  filename:taskinstance.py:731  levelname:INFO  err_message:::endgroup::
+time:2024-12-06T05:04:48.379+0000  filename:taskinstance.py:3311  levelname:ERROR  err_message:Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/error_dag.py", line 8, in raise_error
+    raise ValueError(
+ValueError: This is an intentional error.
+Line 1: Something went wrong.
+Line 2: Please check the configuration.
+Line 3: Ensure all dependencies are installed.
+Line 4: Refer to the documentation for more details.
+Line 5: Contact support if the issue persists.
+time:2024-12-06T05:04:48.388+0000  filename:taskinstance.py:3311  levelname:ERROR  err_message:Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/error_dag.py", line 8, in raise_error
+    raise ValueError(
+ValueError: This is an intentional error.
+Line 1: Something went wrong.
+Line 2: Please check the configuration.
+Line 3: Ensure all dependencies are installed.
+Line 4: Refer to the documentation for more details.
+Line 5: Contact support if the issue persists.
+time:2024-12-06T05:04:48.389+0000  filename:taskinstance.py:1225  levelname:INFO  err_message:Marking task as FAILED. dag_id=error_dag, task_id=error_task, run_id=manual__2024-12-06T04:59:44.722022+00:00, execution_date=20241206T045944, start_date=20241206T050448, end_date=20241206T050448
+time:2024-12-06T05:04:48.393+0000  filename:taskinstance.py:1225  levelname:INFO  err_message:Marking task as FAILED. dag_id=error_dag, task_id=error_task, run_id=scheduled__2023-01-01T00:00:00+00:00, execution_date=20230101T000000, start_date=20241206T050448, end_date=20241206T050448
+time:2024-12-06T05:04:48.396+0000  filename:taskinstance.py:340  levelname:INFO  err_message:::group::Post task execution logs
+time:2024-12-06T05:04:48.396+0000  filename:standard_task_runner.py:124  levelname:ERROR  err_message:Failed to execute job 8 for task error_task (This is an intentional error.
+Line 1: Something went wrong.
+Line 2: Please check the configuration.
+Line 3: Ensure all dependencies are installed.
+Line 4: Refer to the documentation for more details.
+Line 5: Contact support if the issue persists.; 238)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/error_dag.py", line 8, in raise_error
+    raise ValueError(
+ValueError: This is an intentional error.
+Line 1: Something went wrong.
+Line 2: Please check the configuration.
+Line 3: Ensure all dependencies are installed.
+Line 4: Refer to the documentation for more details.
+Line 5: Contact support if the issue persists.
+time:2024-12-06T05:04:48.399+0000  filename:taskinstance.py:340  levelname:INFO  err_message:::group::Post task execution logs
+time:2024-12-06T05:04:48.399+0000  filename:standard_task_runner.py:124  levelname:ERROR  err_message:Failed to execute job 7 for task error_task (This is an intentional error.
+Line 1: Something went wrong.
+Line 2: Please check the configuration.
+Line 3: Ensure all dependencies are installed.
+Line 4: Refer to the documentation for more details.
+Line 5: Contact support if the issue persists.; 237)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/error_dag.py", line 8, in raise_error
+    raise ValueError(
+ValueError: This is an intentional error.
+Line 1: Something went wrong.
+Line 2: Please check the configuration.
+Line 3: Ensure all dependencies are installed.
+Line 4: Refer to the documentation for more details.
+Line 5: Contact support if the issue persists.
+time:2024-12-06T05:04:48.417+0000  filename:local_task_job_runner.py:266  levelname:INFO  err_message:Task exited with return code 1
+time:2024-12-06T05:04:48.419+0000  filename:local_task_job_runner.py:266  levelname:INFO  err_message:Task exited with return code 1
+time:2024-12-06T05:04:48.428+0000  filename:taskinstance.py:3895  levelname:INFO  err_message:0 downstream tasks scheduled from follow-on schedule check
+time:2024-12-06T05:04:48.429+0000  filename:taskinstance.py:3895  levelname:INFO  err_message:0 downstream tasks scheduled from follow-on schedule check
+time:2024-12-06T05:04:48.432+0000  filename:local_task_job_runner.py:245  levelname:INFO  err_message:::endgroup::
+time:2024-12-06T05:04:48.435+0000  filename:local_task_job_runner.py:245  levelname:INFO  err_message:::endgroup::
