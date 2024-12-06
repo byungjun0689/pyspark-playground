@@ -24,15 +24,11 @@ then
   hdfs dfs -mkdir -p /opt/spark/data
   echo "Created /opt/spark/data hdfs dir"
 
-
   # copy the data to the data HDFS directory
   hdfs dfs -copyFromLocal /opt/spark/data/* /opt/spark/data
   hdfs dfs -ls /opt/spark/data
 
   # # fluent-bit
-  # curl https://raw.githubusercontent.com/fluent/fluent-bit/master/install.sh | sh
-  # curl https://packages.fluentbit.io/fluentbit.key | gpg --dearmor > /usr/share/keyrings/fluentbit-keyring.gpg
-
   systemctl restart fluent-bit
 
 elif [ "$SPARK_WORKLOAD" == "worker" ];

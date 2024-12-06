@@ -50,6 +50,9 @@ submit-da-book:
 submit-yarn-test:
 	docker exec da-spark-yarn-master spark-submit --master yarn --deploy-mode cluster ./examples/src/main/python/pi.py
 
+submit-yarn-test-err:
+	docker exec da-spark-yarn-master spark-submit --master yarn --deploy-mode cluster ./examples/src/main/python/pi_err.py
+
 submit-yarn-cluster:
 	docker exec da-spark-yarn-master spark-submit --master yarn --deploy-mode cluster ./apps/$(app)
 
