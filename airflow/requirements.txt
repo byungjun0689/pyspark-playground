@@ -1,0 +1,4 @@
+requests
+apache-airflow==2.10.3
+findspark
+apache-airflow-providers-cncf-kubernetes

@@ -120,7 +120,7 @@ COPY entrypoint-yarn.sh entrypoint.sh
 
 # Copy Example pi.py 
 
-COPY examples/pi.py /opt/spark/examples/src/main/python/pi.py
+COPY examples/ /opt/spark/examples/src/main/python/
 
 EXPOSE 22
 
