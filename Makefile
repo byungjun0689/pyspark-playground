@@ -29,10 +29,10 @@ run-d:
 	make down && docker-compose up -d
 
 run-yarn:
-	make down-yarn && docker network create khc-logging-system-network && docker-compose -f docker-compose.yarn.yml up
+	make down-yarn && docker-compose -f docker-compose.yarn.yml up
 
 run-yarn-scaled:
-	make down-yarn && docker network create khc-logging-system-network && docker-compose -f docker-compose.yarn.yml up --scale spark-yarn-worker=3
+	make down-yarn && docker-compose -f docker-compose.yarn.yml up --scale spark-yarn-worker=3
 
 stop:
 	docker-compose stop

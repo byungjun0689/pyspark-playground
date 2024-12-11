@@ -1,4 +1,4 @@
-version: '3.8'
+#version: '3.8'
 
 services:
   spark-yarn-master:
@@ -46,3 +46,7 @@ services:
       - '18080:18080'
     networks:
       - khc-logging-system-network
+
+networks:
+  khc-logging-system-network:
+    external: true

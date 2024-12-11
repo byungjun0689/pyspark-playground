@@ -102,7 +102,7 @@ services:
     restart: always
 
     networks:
-      - pyspark-playground_shared_network
+      - khc-logging-system-network
   
   redis:
     # Redis is limited to 7.2-bookworm due to licencing change
@@ -119,7 +119,7 @@ services:
     restart: always
 
     networks:
-      - pyspark-playground_shared_network
+      - khc-logging-system-network
     
   airflow-webserver:
     <<: *airflow-common
@@ -139,7 +139,7 @@ services:
         condition: service_completed_successfully
 
     networks:
-      - pyspark-playground_shared_network
+      - khc-logging-system-network
 
   airflow-scheduler:
     <<: *airflow-common
@@ -157,7 +157,7 @@ services:
         condition: service_completed_successfully
 
     networks:
-      - pyspark-playground_shared_network
+      - khc-logging-system-network
 
   airflow-worker:
     <<: *airflow-common
@@ -183,7 +183,7 @@ services:
         condition: service_completed_successfully
     
     networks:
-      - pyspark-playground_shared_network
+      - khc-logging-system-network
 
   airflow-triggerer:
     <<: *airflow-common
@@ -201,7 +201,7 @@ services:
         condition: service_completed_successfully
     
     networks:
-      - pyspark-playground_shared_network
+      - khc-logging-system-network
 
   airflow-init:
     <<: *airflow-common
@@ -268,7 +268,7 @@ services:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
     
     networks:
-      - pyspark-playground_shared_network
+      - khc-logging-system-network
 
   airflow-cli:
     <<: *airflow-common
@@ -283,7 +283,7 @@ services:
       - -c
       - airflow
     networks:
-      - pyspark-playground_shared_network
+      - khc-logging-system-network
 
   # You can enable flower by adding "--profile flower" option e.g. docker-compose --profile flower up
   # or by explicitly targeted on the command line e.g. docker-compose up flower.
@@ -307,11 +307,11 @@ services:
       airflow-init:
         condition: service_completed_successfully
     networks:
-      - pyspark-playground_shared_network
+      - khc-logging-system-network
 
 volumes:
   postgres-db-volume:
 
 networks:
-  pyspark-playground_shared_network:
+  khc-logging-system-network:
     external: true
