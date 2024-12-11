@@ -6,6 +6,6 @@ echo "\n\nnetworks:\n  khc-logging-system-network:\n    external: true" >> docke
 sed -i '' 's/- loki/- khc-logging-system-network/g' docker-compose.yaml
 
 docker network inspect khc-logging-system-network >/dev/null 2>&1 || \
-docker network create --driver bridge khc-logging-system-network
+docker network create khc-logging-system-network
 
 #docker compose up -d 
