@@ -1,9 +1,5 @@
 version: '3.8'
 
-networks:
-  shared_network:
-    driver: bridge
-
 services:
   spark-yarn-master:
     container_name: da-spark-yarn-master
@@ -23,7 +19,7 @@ services:
       - '7077:7077'
       - '8088:8088'
     networks:
-      - shared_network
+      - khc-logging-system-network
       
   spark-yarn-worker:
     image: da-spark-yarn-image
@@ -36,7 +32,7 @@ services:
       - ./book_data:/opt/spark/data
       - ./spark_apps:/opt/spark/apps
     networks:
-      - shared_network
+      - khc-logging-system-network
 
   yarn-history-server:
     container_name: da-spark-yarn-history
@@ -49,4 +45,4 @@ services:
     ports:
       - '18080:18080'
     networks:
-      - shared_network
+      - khc-logging-system-network
