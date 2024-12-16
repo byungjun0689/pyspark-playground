@@ -10,7 +10,6 @@ function filter_khc_airflow_log(tag, timestamp, record)
     end
 
     local log_line = record["log"]
-    --local pattern = "time:(%d+%-%d+%-%d+)T(%d+:%d+:%d+%.%d+%+0000)%s%sfilename:(%w+%.py):%d+%s%slevelname:(%w+)%s%serr_message:(.*)"
     local pattern = "time:(%d+%-%d+%-%d+)T(%d+:%d+:%d+%.%d+%+0000)%s%sfilename:([^%s]+)%s%slevel_info:(%w+)%s%smessage:(.*)"
     local date, time, filename, level, message = string.match(log_line, pattern)
 
