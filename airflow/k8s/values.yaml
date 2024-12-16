@@ -959,6 +959,12 @@ workers:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#resourcerequirements-v1-core
   ##
   resources: {}
+    # requests:
+    #   memory: 1500Mi
+    #   cpu: 10m
+    # limits:
+    #   memory: 2000Mi
+    #   cpu: 13m
 
   ## the nodeSelector configs for the worker Pods
   ## - docs for nodeSelector:
@@ -997,7 +1003,6 @@ workers:
   ## Pod labels for the worker StatefulSet
   ##
   podLabels: {}
-
   ## annotations for the worker StatefulSet
   ##
   annotations: {}

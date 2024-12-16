@@ -5,8 +5,8 @@ export AIRFLOW_NAME="khc-airflow"
 export AIRFLOW_NAMESPACE="hrs"
 
 ## create the namespace
-kubectl delete ns "$AIRFLOW_NAMESPACE"
-kubectl create ns "$AIRFLOW_NAMESPACE"
+#kubectl delete ns "$AIRFLOW_NAMESPACE"
+#kubectl create ns "$AIRFLOW_NAMESPACE"
 
 ## install using helm 3
 helm install \
